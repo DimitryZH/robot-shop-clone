@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: robot-shop
+  namespace: argocd   # Argo CD's own namespace
+spec:
+  project: default
+
+  source:
+    repoURL: 'https://github.com/DimitryZH/robot-shop-clone.git'
+    targetRevision: main
+    path: K8s/helm
+
+    helm:
+      releaseName: robot-shop
+      valueFiles:
+        - values.yaml  # path relative to K8s/helm directory
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: robot-shop
+
+  syncPolicy:
+    automated:
+      prune: true        # removes resources not defined in Git
+      selfHeal: true     # reverts manual changes in the cluster
+    syncOptions:
+      - CreateNamespace=true  # auto-create robot-shop namespace if missing
