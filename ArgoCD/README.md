@@ -1,6 +1,13 @@
-## Deploy Robot Shop on Minikube with Argo CD
+## GitOps-Driven Microservices Demo: Robot Shop Deployment with Argo CD, Helm, and Minikube
 
-This guide explains how to deploy the Robot Shop microservices application using Helm and Argo CD on Minikube.
+A comprehensive demonstration of GitOps practices using Argo CD to deploy and manage a microservices-based e-commerce application (Robot Shop) on a local Kubernetes environment. This project showcases:
+
+- GitOps workflow with Argo CD for continuous deployment
+- Helm charts for Kubernetes resource management
+- Microservices architecture in a local development environment
+- Development-to-production practices using Minikube
+
+This guide provides a complete walkthrough of deploying and managing the Robot Shop microservices application using declarative GitOps patterns with Argo CD and Helm on Minikube.
 
 ## Prerequisites
 
